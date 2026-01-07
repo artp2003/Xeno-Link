@@ -1,0 +1,75 @@
+[gd_scene load_steps=16 format=3 uid="uid://sbm50u1inmyr"]
+
+[ext_resource type="Script" uid="uid://boj4by83c2imd" path="res://scenes/dragger.gd" id="1_m6g28"]
+[ext_resource type="Texture2D" uid="uid://cvdf7j7hd1t7k" path="res://assets/dragger.png" id="2_qnmhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhiog"]
+atlas = ExtResource("2_qnmhw")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utc1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhiog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnmhw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhiog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utc1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85cxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slq7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4bc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sas02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fn0th"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qawi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqomm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7hc6x"]
+
+[node name="Dragger" type="Node2D"]
+script = ExtResource("1_m6g28")
+
+[node name="Dragger" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_utc1q")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qnmhw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jhiog")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_utc1q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_85cxb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_slq7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w4bc5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_sas02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fn0th")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4qawi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qqomm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hc6x")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

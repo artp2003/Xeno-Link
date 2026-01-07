@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkd0lfndejmpy"]
+
+[ext_resource type="Script" uid="uid://b8ojn2srufv0h" path="res://scenes/sine_wave.gd" id="1_cklc4"]
+[ext_resource type="Script" uid="uid://bnsw87ioars1h" path="res://scenes/path_2d.gd" id="2_cklc4"]
+
+[sub_resource type="Curve2D" id="Curve2D_jag57"]
+_data = {
+"points": PackedVector2Array(0, 0, 100, 0, 0, 100, -100, 0, 0, 0, 200, -100)
+}
+point_count = 2
+
+[node name="SineWave" type="Node2D"]
+position = Vector2(640, 360)
+script = ExtResource("1_cklc4")
+
+[node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("line")]
+curve = SubResource("Curve2D_jag57")
+script = ExtResource("2_cklc4")
+line = NodePath("Path2D_line")
+update_curve_at_runtime = true
+
+[node name="Path2D_line" type="Line2D" parent="Path2D"]
+points = PackedVector2Array(0, 100, 9.088135, 99.42627, 17.626953, 97.75391, 25.653076, 95.05615, 33.203125, 91.40625, 40.31372, 86.87744, 47.021484, 81.54297, 53.363037, 75.476074, 59.375, 68.75, 70.55664, 53.61328, 80.859375, 36.71875, 119.140625, -36.71875, 129.44336, -53.61328, 140.625, -68.75, 146.63696, -75.476074, 152.97852, -81.54297, 159.68628, -86.87744, 166.79688, -91.40625, 174.34692, -95.05615, 182.37305, -97.75391, 190.91187, -99.42627, 200, -100)
+width = 2.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+metadata/_edit_lock_ = true
